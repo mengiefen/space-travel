@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import logo from '../../assets/images/logo.png';
 import './Header.scss';
 
 const Header = () => {
@@ -22,7 +23,10 @@ const Header = () => {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="#home">
+            <img src={logo} className="logo-img" alt="logo" />
+            Space Traveler&apos;s Hub
+          </Navbar.Brand>
           <Nav className="me-auto">
             {NavItems.map((navItem) => (
               <NavLink
