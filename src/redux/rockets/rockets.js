@@ -9,6 +9,7 @@ const initialState = [];
 const rocketsReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ROCKETS:
+      if (state.length > 0) return state;
       return action.rockets;
     case RESERVE_ROCKETS:
       return state.map((rocket, index) => {
@@ -53,20 +54,20 @@ export const cancelReservedRocket = (id) => ({
 });
 
 export const getAllRockets = () => async (dispatch) => {
-  const rocketsFromAPI = await getAllRocketsFromAPI();
   const rockets = [];
-  rocketsFromAPI.forEach((rocket) => {
-    rockets.push({
-      id: rocket.id - 1,
-      rocket_id: rocket.rocket_id,
-      description: rocket.description,
-      name: rocket.rocket_name,
-      rocket_img: rocket.flickr_images,
-      reserved: false,
+  await getAllRocketsFromAPI().then((result) => {
+    result.forEach((rocket) => {
+      rockets.push({
+        id: rocket.id - 1,
+        rocket_id: rocket.rocket_id,
+        description: rocket.description,
+        name: rocket.rocket_name,
+        rocket_img: rocket.flickr_images,
+        reserved: false,
+      });
     });
+    dispatch(getRocketsList(rockets));
   });
-
-  dispatch(getRocketsList(rockets));
 };
 
 export default rocketsReducer;
