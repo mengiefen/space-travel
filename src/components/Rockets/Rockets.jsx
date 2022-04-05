@@ -30,7 +30,7 @@ const Rockets = () => {
             <Card.Title>{rocket.name}</Card.Title>
             <Card.Text>
               {rocket.reserved && (
-                <Button variant="primary" className="btn-reserved">
+                <Button variant="primary" className="btn-reserved" disabled>
                   Reserved
                 </Button>
               )}
