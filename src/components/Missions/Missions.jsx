@@ -5,7 +5,7 @@ import MissionItem from '../MissionItem/MissionItem';
 import '../MissionItem/MissionItem.scss';
 
 const Missions = () => {
-  const missionList = useSelector((state) => state.missionsReducer);
+  const missionList = useSelector((state) => state.missions);
 
   return (
     <section className="missions-container">
