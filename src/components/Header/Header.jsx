@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import logo from '../../assets/images/logo.png';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './Header.scss';
 
 const Header = () => {
