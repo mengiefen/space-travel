@@ -1,0 +1,44 @@
+.rockets-card {
+  width: 90%;
+  margin: 1rem auto;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 1rem;
+
+  @media screen and (max-width: 768px) {
+    .rockets-card {
+      flex-direction: column;
+    }
+  }
+}
+
+.rockets-img {
+  width: 18rem;
+  height: auto;
+}
+
+.rockets-detail {
+  width: auto;
+}
+
+.btn-reserved {
+  padding: 0 0.5rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.rocket-title {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.rocket-list {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.reserved-list {  
+  width: 30%;
+}
