@@ -1,6 +1,6 @@
-const JOIN_MISSION = 'space-travelers/rockets/JOIN_MISSION';
-const LEAVE_MISSION = 'space-travelers/rockets/LEAVE_MISSION';
-const FETCH_MISSIONS = 'space-travelers/rockets/FETCH_MISSIONS';
+const JOIN_MISSION = 'space-travel/rockets/JOIN_MISSION';
+const LEAVE_MISSION = 'space-travel/rockets/LEAVE_MISSION';
+const FETCH_MISSIONS = 'space-travel/rockets/FETCH_MISSIONS';
 const baseURL = 'https://api.spacexdata.com/v3/missions';
 
 // initial state
@@ -27,7 +27,6 @@ export const fetchMissionsFromAPI = () => async (dispatch) => {
   await fetch(`${baseURL}`)
     .then((response) => response.json())
     .then((MissionsList) => {
-      console.log(MissionsList);
       const arrangedList = MissionsList.map((mission) => ({
         id: mission.mission_id,
         name: mission.mission_name,
