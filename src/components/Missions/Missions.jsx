@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Table from 'react-bootstrap/Table';
 import MissionItem from '../MissionItem/MissionItem';
 import '../MissionItem/MissionItem.scss';
 
@@ -8,7 +9,7 @@ const Missions = () => {
 
   return (
     <section className="missions-container">
-      <table striped bordered hover>
+      <Table striped bordered hover>
         <thead>
           <tr>
             <th>Mission</th>
@@ -29,7 +30,7 @@ const Missions = () => {
             ))
           }
         </tbody>
-      </table>
+      </Table>
     </section>
   );
 };
