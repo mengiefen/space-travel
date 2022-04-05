@@ -1,9 +1,14 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import missionsReducer, { fetchMissionsFromAPI }  from './missions/missions';
+import missionsReducer, { fetchMissionsFromAPI } from './missions/missions';
 
-const rootReducer = combineReducers({ missionsReducer });
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const reducer = combineReducers({
+  missionsReducer,
+  // rocketsReducer,
+});
+
+const store = createStore(reducer, applyMiddleware(thunk, logger));
 store.dispatch(fetchMissionsFromAPI());
 
 export default store;

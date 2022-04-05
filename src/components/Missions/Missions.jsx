@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import MissionItem from './MissionItem';
+import MissionItem from '../MissionItem/MissionItem';
+import '../MissionItem/MissionItem.scss';
 
 const Missions = () => {
   const missionList = useSelector((state) => state.missionsReducer);
@@ -13,7 +14,7 @@ const Missions = () => {
             <th>Mission</th>
             <th>Description</th>
             <th>Status</th>
-            <th> </th>
+            <th>Content</th>
           </tr>
         </thead>
         <tbody>
