@@ -20,9 +20,36 @@ const Rockets = () => {
       setCookie('rockets', rockets, { path: '/' });
     } else {
       dispatch(getAllRockets());
-      setCookie('rockets', rockets, { path: '/' });
     }
   }, []);
+  const handleReserve = (id) => {
+    dispatch(reserveRocket(id));
+    const newCookie = cookie.rockets.map((rocket, index) => {
+      if (index !== id) {
+        return rocket;
+      }
+      return {
+        ...rocket,
+        reserved: true,
+      };
+    });
+    setCookie('rockets', newCookie, { path: '/' });
+  };
+
+  const handleCancelReseravation = (id) => {
+    dispatch(cancelReservedRocket(id));
+
+    const newCookie = cookie.rockets.map((rocket, index) => {
+      if (index !== id) {
+        return rocket;
+      }
+      return {
+        ...rocket,
+        reserved: false,
+      };
+    });
+    setCookie('rockets', newCookie, { path: '/' });
+  };
 
   return (
     <>
@@ -43,15 +70,21 @@ const Rockets = () => {
               )}
               {rocket.description}
             </Card.Text>
-            <Button
-              variant={rocket.reserved ? 'outline-secondary' : 'secondary'}
-              onClick={() => {
-                if (rocket.reserved) dispatch(cancelReservedRocket(rocket.id));
-                else dispatch(reserveRocket(rocket.id));
-              }}
-            >
-              {rocket.reserved ? 'Cancel Reservation' : 'Reserve Rockets'}
-            </Button>
+            {rocket.reserved ? (
+              <Button
+                variant="outline-secondary"
+                onClick={() => handleCancelReseravation(rocket.id)}
+              >
+                Cancel Reseravation
+              </Button>
+            ) : (
+              <Button
+                variant="secondary"
+                onClick={() => handleReserve(rocket.id)}
+              >
+                Reserve Rocket
+              </Button>
+            )}
           </Card.Body>
         </Card>
       ))}
