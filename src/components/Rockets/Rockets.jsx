@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useCookies } from 'react-cookie';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import {
@@ -12,14 +13,20 @@ import './Rockets.scss';
 
 const Rockets = () => {
   const rockets = useSelector((state) => state.rockets);
-
+  const [cookie, setCookie] = useCookies(['rockets']);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getAllRockets());
+    if (rockets && cookie.rockets === undefined) {
+      setCookie('rockets', rockets, { path: '/' });
+    } else {
+      dispatch(getAllRockets());
+      setCookie('rockets', rockets, { path: '/' });
+    }
   }, []);
+
   return (
     <>
-      {rockets.map((rocket) => (
+      {cookie.rockets.map((rocket) => (
         <Card className="rockets-card" key={rocket.id}>
           <Card.Img
             variant="top"
