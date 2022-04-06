@@ -1,0 +1,190 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly when there are no items 1`] = `
+<nav
+  className="navbar navbar-expand navbar-dark bg-dark"
+>
+  <div
+    className="container"
+  >
+    <a
+      className="navbar-brand"
+      href="#home"
+    >
+      <img
+        alt="logo"
+        className="logo-img"
+        src="logo.png"
+      />
+      Space Traveler's Hub
+    </a>
+    <div
+      className="navbar-nav"
+      onKeyDown={[Function]}
+    >
+      <a
+        aria-current="page"
+        className="nav-link active"
+        href="/"
+        onClick={[Function]}
+      >
+        Rocket
+      </a>
+      <a
+        className="nav-link"
+        href="/missions"
+        onClick={[Function]}
+      >
+        Missions
+      </a>
+      <a
+        className="nav-link"
+        href="/my-profile"
+        onClick={[Function]}
+      >
+        My Profile
+      </a>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`Header renders correctly when there are no items 1`] = `
+<nav
+  className="navbar navbar-expand navbar-dark bg-dark"
+>
+  <div
+    className="container"
+  >
+    <a
+      className="navbar-brand"
+      href="#home"
+    >
+      <img
+        alt="logo"
+        className="logo-img"
+        src="logo.png"
+      />
+      Space Traveler's Hub
+    </a>
+    <div
+      className="navbar-nav"
+      onKeyDown={[Function]}
+    >
+      <a
+        aria-current="page"
+        className="nav-link active"
+        href="/"
+        onClick={[Function]}
+      >
+        Rocket
+      </a>
+      <a
+        className="nav-link"
+        href="/missions"
+        onClick={[Function]}
+      >
+        Missions
+      </a>
+      <a
+        className="nav-link"
+        href="/my-profile"
+        onClick={[Function]}
+      >
+        My Profile
+      </a>
+    </div>
+  </div>
+</nav>
+`;
+
+exports[`MissionItem renders correctly when there are no items 1`] = `
+<tr>
+  <td
+    className="td-name"
+  />
+  <td
+    className="td-description"
+  />
+  <td
+    className="td-badge"
+  >
+    <button
+      className="btn-reserved btn btn-secondary"
+      disabled={false}
+      type="button"
+    >
+      NOT A MEMBER
+    </button>
+  </td>
+  <td
+    className="td-button"
+  >
+    <button
+      className="btn btn-outline-secondary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Join Mission
+    </button>
+  </td>
+</tr>
+`;
+
+exports[`Missions renders correctly when there are no items 1`] = `
+<div
+  className="missions-container container"
+>
+  <table
+    className="table table-striped table-bordered table-hover"
+  >
+    <thead>
+      <tr>
+        <th>
+          Mission
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Status
+        </th>
+        <th>
+          Content
+        </th>
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;
+
+exports[`MyProfile renders correctly when there are no items 1`] = `
+<div
+  className="list"
+>
+  <div
+    className="reserved-list list-group"
+    onKeyDown={[Function]}
+  >
+    <h2
+      className="rocket-title"
+    >
+      My Rockets
+    </h2>
+  </div>
+  <div
+    className="reserved-list list-group"
+    onKeyDown={[Function]}
+  >
+    <h2
+      className="rocket-title"
+    >
+      My Missions
+    </h2>
+  </div>
+</div>
+`;
+
+exports[`Rockets renders correctly when there are no items 1`] = `null`;
