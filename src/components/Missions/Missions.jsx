@@ -2,10 +2,9 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import MissionItem from '../MissionItem/MissionItem';
-import '../MissionItem/MissionItem.scss';
 
 const Missions = () => {
-  const missionList = useSelector((state) => state.missions);
+  const missionList = useSelector((state) => state.missionsReducer);
 
   return (
     <section className="missions-container">
@@ -26,6 +25,7 @@ const Missions = () => {
                 id={mission.id}
                 name={mission.name}
                 description={mission.description}
+                reserved={mission.reserved}
               />
             ))
           }

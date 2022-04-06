@@ -1,20 +1,20 @@
-const JOIN_MISSION = 'space-travel/rockets/JOIN_MISSION';
-const LEAVE_MISSION = 'space-travel/rockets/LEAVE_MISSION';
-const FETCH_MISSIONS = 'space-travel/rockets/FETCH_MISSIONS';
+const JOIN_MISSION = 'space-travel/missions/JOIN_MISSION';
+const LEAVE_MISSION = 'space-travel/missions/LEAVE_MISSION';
+const FETCH_MISSIONS = 'space-travel/missions/FETCH_MISSIONS';
 const baseURL = 'https://api.spacexdata.com/v3/missions';
 
 // initial state
 const initialState = [];
 
 // action creators
-export const joinMission = (payload) => ({
+export const joinMission = (id) => ({
   type: JOIN_MISSION,
-  payload,
+  id,
 });
 
-export const leaveMission = (payload) => ({
+export const leaveMission = (id) => ({
   type: LEAVE_MISSION,
-  payload,
+  id,
 });
 
 export const fetchMissions = (payload) => ({
@@ -42,10 +42,20 @@ export const fetchMissionsFromAPI = () => async (dispatch) => {
 // reducer
 const missionsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case JOIN_MISSION:
-      return [...state, action.payload];
-    case LEAVE_MISSION:
-      return state.filter((mission) => mission.item_id !== action.payload);
+    case JOIN_MISSION: {
+      const newState = state.map((mission) => {
+        if (mission.id !== action.id) return mission;
+        return { ...mission, reserved: true };
+      });
+      return [...newState];
+    }
+    case LEAVE_MISSION: {
+      const newState = state.map((mission) => {
+        if (mission.id !== action.id) return mission;
+        return { ...mission, reserved: false };
+      });
+      return [...newState];
+    }
     case FETCH_MISSIONS:
       return [...action.payload];
     default:
