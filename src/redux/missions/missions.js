@@ -57,7 +57,8 @@ const missionsReducer = (state = initialState, action) => {
       return [...newState];
     }
     case FETCH_MISSIONS:
-      return [...action.payload];
+      if (state.length > 0) return state;
+      return action.payload;
     default:
       return state;
   }
