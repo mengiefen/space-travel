@@ -99,7 +99,6 @@ describe('the rocket reducer test', () => {
     const action = { type: CANCEL_RESERVED_ROCKET, id: 1 };
     // act
     const result = rocketsReducer(state, action);
-    console.log(result);
     // assert
     const newState = [
       {
