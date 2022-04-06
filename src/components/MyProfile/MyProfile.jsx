@@ -13,7 +13,7 @@ const MyProfile = () => {
   });
 
   return (
-    <div className="rocket-list">
+    <div className="list">
       <ListGroup className="reserved-list">
         <h2 className="rocket-title">My Rockets</h2>
         {reservedRockets.map((rocket) => (

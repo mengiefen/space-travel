@@ -28,7 +28,7 @@ const Header = () => {
             <img src={logo} className="logo-img" alt="logo" />
             Space Traveler&apos;s Hub
           </Navbar.Brand>
-          <Nav className="me-auto">
+          <Nav>
             {NavItems.map((navItem) => (
               <NavLink
                 to={navItem.link}
