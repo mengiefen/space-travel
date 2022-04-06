@@ -1,22 +1,11 @@
 import { PropTypes } from 'prop-types';
-import { useDispatch } from 'react-redux';
 import Button from 'react-bootstrap/Button';
-import { joinMission, leaveMission } from '../../redux/missions/missions';
 import './MissionItem.scss';
 
 const MissionItem = (props) => {
-  const dispatch = useDispatch();
   const {
-    id, name, description, reserved,
+    id, name, description, reserved, handleJoinMission, handleLeaveMission,
   } = props;
-
-  const handleJoinMission = () => {
-    dispatch(joinMission(id));
-  };
-
-  const handleLeaveMission = () => {
-    dispatch(leaveMission(id));
-  };
 
   return (
     <tr id={id}>
@@ -34,7 +23,7 @@ const MissionItem = (props) => {
           <Button
             type="button"
             variant="secondary"
-            onClick={handleLeaveMission}
+            onClick={() => handleLeaveMission(id)}
           >
             Leave Mission
           </Button>
@@ -42,7 +31,7 @@ const MissionItem = (props) => {
           <Button
             type="button"
             variant="outline-secondary"
-            onClick={handleJoinMission}
+            onClick={() => handleJoinMission(id)}
           >
             Join Mission
           </Button>
@@ -57,6 +46,8 @@ MissionItem.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   reserved: PropTypes.bool.isRequired,
+  handleJoinMission: PropTypes.func.isRequired,
+  handleLeaveMission: PropTypes.func.isRequired,
 };
 
 export default MissionItem;
