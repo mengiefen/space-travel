@@ -1,3 +1,13 @@
+.active {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.logo-img {
+  max-width: 3rem;
+  margin: 0 1rem;
+}
+
 .rockets-card {
   width: 90%;
   margin: 1rem auto;
@@ -19,6 +29,10 @@
 
 .rockets-detail {
   width: auto;
+}
+
+.rocket-description {
+  text-align: justify;
 }
 
 .btn-reserved {
@@ -43,3 +57,23 @@
 .reserved-list {
   width: 30%;
 }
+
+td {
+  vertical-align: middle;
+}
+
+.td-description {
+  text-align: justify;
+  padding: 0.4rem 1rem;
+}
+
+.td-badge {
+  width: 10rem;
+  text-align: center;
+}
+
+.td-button {
+  width: 10rem;
+  text-align: center;
+}
+

@@ -7,8 +7,6 @@ import {
   getAllRockets,
   reserveRocket,
 } from '../../redux/rockets/rockets';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './Rockets.scss';
 
 const Rockets = () => {
   const rockets = useSelector((state) => state.rockets);
@@ -36,7 +34,7 @@ const Rockets = () => {
           />
           <Card.Body className="rockets-detail">
             <Card.Title>{rocket.name}</Card.Title>
-            <Card.Text>
+            <Card.Text className="rocket-description">
               {rocket.reserved && (
                 <Button variant="primary" className="btn-reserved" disabled>
                   Reserved
