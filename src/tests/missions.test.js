@@ -55,4 +55,4 @@ describe('missions reducer test ', () => {
     // assert
     expect(result).toEqual(state);
   });
-}
+});
