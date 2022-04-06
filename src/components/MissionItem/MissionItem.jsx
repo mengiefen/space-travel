@@ -1,8 +1,8 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { joinMission, leaveMission } from '../../redux/missions/missions';
 import Button from 'react-bootstrap/Button';
-import './MissionItem.scss'
+import { joinMission, leaveMission } from '../../redux/missions/missions';
+import './MissionItem.scss';
 
 const MissionItem = (props) => {
   const dispatch = useDispatch();

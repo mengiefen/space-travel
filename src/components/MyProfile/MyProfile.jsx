@@ -5,9 +5,8 @@ import ListGroup from 'react-bootstrap/ListGroup';
 const MyProfile = () => {
   const [reservedRockets, setReservedRockets] = useState([]);
   const [reservedMissions, setReservedMissions] = useState([]);
-  
   const rockets = useSelector((state) => state.rockets);
-  const missions = useSelector((state) => state.missionsReducer)
+  const missions = useSelector((state) => state.missionsReducer);
   useEffect(() => {
     setReservedRockets(rockets.filter((rocket) => rocket.reserved === true));
     setReservedMissions(missions.filter((mission) => mission.reserved === true));
