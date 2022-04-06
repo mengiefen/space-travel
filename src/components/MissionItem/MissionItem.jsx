@@ -1,6 +1,5 @@
 import { PropTypes } from 'prop-types';
 import Button from 'react-bootstrap/Button';
-import './MissionItem.scss';
 
 const MissionItem = (props) => {
   const {

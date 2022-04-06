@@ -6,6 +6,8 @@ import Header from './components/Header/Header';
 import Rockets from './components/Rockets/Rockets';
 import Missions from './components/Missions/Missions';
 import MyProfile from './components/MyProfile/MyProfile';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/scss/custom.scss';
 
 function App() {
   return (

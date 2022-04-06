@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Table from 'react-bootstrap/Table';
+import Container from 'react-bootstrap/Container';
 import {
   joinMission,
   leaveMission,
@@ -26,7 +27,7 @@ const Missions = () => {
   };
 
   return (
-    <section className="missions-container">
+    <Container className="missions-container">
       <Table striped bordered hover>
         <thead>
           <tr>
@@ -50,7 +51,7 @@ const Missions = () => {
           ))}
         </tbody>
       </Table>
-    </section>
+    </Container>
   );
 };
 
