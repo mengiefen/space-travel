@@ -1,8 +1,8 @@
 import { getAllRocketsFromAPI } from '../apiCalls/apiCalls';
 
-const GET_ROCKETS = 'spaceTravel/Rockets/GET_ROCKETS';
-const RESERVE_ROCKETS = 'spaceTravel/Rockets/RESERVE_ROCKETS';
-const CANCEL_RESERVED_ROCKET = 'spaceTravel/Rockets/CANCEL_RESERVED_ROCKET';
+export const GET_ROCKETS = 'spaceTravel/Rockets/GET_ROCKETS';
+export const RESERVE_ROCKETS = 'spaceTravel/Rockets/RESERVE_ROCKETS';
+export const CANCEL_RESERVED_ROCKET = 'spaceTravel/Rockets/CANCEL_RESERVED_ROCKET';
 
 const initialState = [];
 
@@ -11,27 +11,20 @@ const rocketsReducer = (state = initialState, action) => {
     case GET_ROCKETS:
       if (state.length > 0) return state;
       return action.rockets;
-    case RESERVE_ROCKETS:
-      return state.map((rocket, index) => {
-        if (index !== action.id) {
-          return rocket;
-        }
-        return {
-          ...rocket,
-          reserved: true,
-        };
+    case RESERVE_ROCKETS: {
+      const newState = state.map((rocket) => {
+        if (rocket.id !== action.id) return rocket;
+        return { ...rocket, reserved: true };
       });
-
-    case CANCEL_RESERVED_ROCKET:
-      return state.map((rocket, index) => {
-        if (index !== action.id) {
-          return rocket;
-        }
-        return {
-          ...rocket,
-          reserved: false,
-        };
+      return [...newState];
+    }
+    case CANCEL_RESERVED_ROCKET: {
+      const newState = state.map((rocket) => {
+        if (rocket.id !== action.id) return rocket;
+        return { ...rocket, reserved: false };
       });
+      return [...newState];
+    }
 
     default:
       return state;
