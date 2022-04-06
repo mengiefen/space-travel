@@ -1,10 +1,29 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Table from 'react-bootstrap/Table';
+import {
+  joinMission,
+  leaveMission,
+  fetchMissionsFromAPI,
+} from '../../redux/missions/missions';
 import MissionItem from '../MissionItem/MissionItem';
 
 const Missions = () => {
   const missionList = useSelector((state) => state.missionsReducer);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchMissionsFromAPI());
+  }, []);
+
+  const handleJoinMission = (id) => {
+    dispatch(joinMission(id));
+  };
+
+  const handleLeaveMission = (id) => {
+    dispatch(leaveMission(id));
+  };
 
   return (
     <section className="missions-container">
@@ -18,17 +37,17 @@ const Missions = () => {
           </tr>
         </thead>
         <tbody>
-          {
-            missionList.map((mission) => (
-              <MissionItem
-                key={mission.id}
-                id={mission.id}
-                name={mission.name}
-                description={mission.description}
-                reserved={mission.reserved}
-              />
-            ))
-          }
+          {missionList.map((mission) => (
+            <MissionItem
+              key={mission.id}
+              id={mission.id}
+              name={mission.name}
+              description={mission.description}
+              reserved={mission.reserved}
+              handleJoinMission={handleJoinMission}
+              handleLeaveMission={handleLeaveMission}
+            />
+          ))}
         </tbody>
       </Table>
     </section>

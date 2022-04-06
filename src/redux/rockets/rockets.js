@@ -68,6 +68,8 @@ export const getAllRockets = () => async (dispatch) => {
     });
     dispatch(getRocketsList(rockets));
   });
+
+  return rockets;
 };
 
 export default rocketsReducer;

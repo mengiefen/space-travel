@@ -1,7 +1,9 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
-import missionsReducer, { fetchMissionsFromAPI } from './missions/missions';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+import missionsReducer from './missions/missions';
 import rocketsReducer from './rockets/rockets';
 
 const rootReducer = combineReducers({
@@ -9,7 +11,13 @@ const rootReducer = combineReducers({
   rockets: rocketsReducer,
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk, logger));
-store.dispatch(fetchMissionsFromAPI());
+const persistConfig = {
+  key: 'root',
+  storage,
+};
 
-export default store;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+const store = createStore(persistedReducer, applyMiddleware(thunk, logger));
+const persistor = persistStore(store);
+
+export { persistor, store };
