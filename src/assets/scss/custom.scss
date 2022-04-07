@@ -1,0 +1,78 @@
+.active {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.logo-img {
+  max-width: 3rem;
+  margin: 0 1rem;
+}
+
+.rockets-card {
+  width: 90%;
+  margin: 1rem auto;
+  flex-direction: row;
+  gap: 2rem;
+  padding: 1rem;
+
+  @media screen and (max-width: 768px) {
+    .rockets-card {
+      flex-direction: column;
+    }
+  }
+}
+
+.rockets-img {
+  width: 18rem;
+  height: auto;
+}
+
+.rockets-detail {
+  width: auto;
+}
+
+.rocket-description {
+  text-align: justify;
+}
+
+.btn-reserved {
+  padding: 0 0.5rem;
+  display: inline-block;
+  margin-right: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.rocket-title {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.list {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.reserved-list {
+  width: 30%;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.td-description {
+  text-align: justify;
+  padding: 0.4rem 1rem;
+}
+
+.td-badge {
+  width: 10rem;
+  text-align: center;
+}
+
+.td-button {
+  width: 10rem;
+  text-align: center;
+}
