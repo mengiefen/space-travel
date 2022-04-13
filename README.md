@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet) ![](https://img.shields.io/badge/MENGSTU-FENTAW-success) ![](https://img.shields.io/badge/FRANCISCO-PONCE-success) [![](https://img.shields.io/badge/LIVE-DEMO-blue)](https://mengiefen.github.io/space-travel/)
 
-# THE SPACE TRAVEL
+# THE SPACE TRAVELER'S HUB
 
 In this task, we worked with the real live data from the SpaceX API. This is app is inteded to be a web application for a company that provides commercial and scientific space travel services. The application will allow users to book rockets and join selected space missions.
 
