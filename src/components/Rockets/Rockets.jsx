@@ -47,7 +47,7 @@ const Rockets = () => {
                 variant="outline-secondary"
                 onClick={() => handleCancelReseravation(rocket.id)}
               >
-                Cancel Reseravation
+                Cancel Reservation
               </Button>
             ) : (
               <Button
